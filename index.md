@@ -1,15 +1,15 @@
-# Ardy Hash
 Accredited business conscious devops engineer wielding over a decade of experience leveraging cloud, open
 source, proprietary and commodity technologies to architect and deploy agile, resilient, and timeless solutions.
 
 ## PROFESSIONAL EXPERIENCE
-Accredited business conscious devops engineer wielding over a decade of experience leveraging cloud, open
-source, proprietary and commodity technologies to architect and deploy agile, resilient, and timeless solutions.
-PROFESSIONAL EXPERIENCE
-2019-Current Accenture, Cloud Migration and Implementation Delivery Specialist                      New York, NY
-Cloud Devops Consultant with telecommunications conglomerate client (Multiple engagements)          2019-Current
+2019-Current Accenture, Cloud Migration and Implementation Delivery Specialist
+
+Cloud Devops Consultant with telecommunications conglomerate client (Multiple engagements)
+
 ● Identify opportunities for automation and lead the architecture and implementation thereof
+
 ● Design, build, and configure applications to meet business process and platform requirements
+
 ● Architect, develop, and deploy internal DevOps tooling to help streamline and support cloud operations
 ● Lead and mentor team of onshore and offshore resources to improve and support multi cloud infrastructure
 ● Integrate with client teams to investigate root causes of incidents, identify solutions, and implement the fixes
