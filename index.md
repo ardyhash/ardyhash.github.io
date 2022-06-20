@@ -56,7 +56,8 @@ and dial-in VPN infrastructure; VoIP based IP-PBX running on commodity hardware;
 hosted Web Servers; DNS, DHCP, LDAP, Radius, SAMBA, NAS; Windows Active Directory Domain Services; Web
 based time, attendance and scheduling; Backup and Disaster Recovery; eMail and collaboration suite; IP based CCTV
 system; Automation Scripting; Ticketing system
-EDUCATION
+
+## EDUCATION
 Bachelors in Computer Engineering Technology, New York City College of Technology Brooklyn, NY
 
 ● Long-standing member of the Honors Scholars program
@@ -66,8 +67,7 @@ Bachelors in Computer Engineering Technology, New York City College of Technolog
 ● Broad range of studies ranging from advanced mathematics and electrical and mechanical engineering to the
 history of architecture and ethics of healthcare and engineering; heavy emphasis on computer engineering topics
 
-Skills, Experience, and Certifications:
-
+## Skills, Experience, and Certifications:
 Containerization (Kubernetes and CloudFoundry Certified Application Developer), Scripting, Networking, VoIP, Cloud
 (AWS, Azure, DigitalOcean, Linode, Twilio), On-Prem Infra (Xen, Hyper-V, VMware, KVM, QEMU), Programming
 (BASIC, C/++/#, Java, MatLab, Node), CI/CD (GoCD, Jenkins, Concourse), Databases/BI (Couchbase, MongoDB,
