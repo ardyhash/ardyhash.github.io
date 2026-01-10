@@ -1,170 +1,281 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Ardy Hashem — Product / Software Portfolio</title>
-  <meta name="description" content="Ardy Hashem — product-focused software engineer. Portfolio, projects, and experience." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
-  <!-- Open Graph -->
-  <meta property="og:title" content="Ardy Hashem — Product / Software Portfolio">
-  <meta property="og:description" content="Product-focused software engineer. Portfolio, projects, and experience.">
-  <meta property="og:image" content="assets/images/og-image.svg">
-  <meta property="og:type" content="website">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" href="assets/images/favicon.svg" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ardy Hashem — Professional Profile</title>
+
+<style>
+body::before {
+  content: "";
+  position: fixed;
+  top: -20%;
+  left: -20%;
+  width: 140%;
+  height: 140%;
+  background: radial-gradient(circle at 30% 30%, rgba(106,13,173,0.15), transparent 60%),
+              radial-gradient(circle at 70% 70%, rgba(106,13,173,0.12), transparent 60%);
+  animation: floatBlobs 22s ease-in-out infinite alternate;
+  z-index: -1;
+}
+
+@keyframes floatBlobs {
+  0%   { transform: translate(0,0) scale(1); }
+  100% { transform: translate(-5%, -5%) scale(1.1); }
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f7f7f7;
+    color: #222;
+    overflow: hidden; /* prevents scrollbars around scaled content */
+  }
+
+  /* NEW: Fullscreen wrapper that calculates scale */
+  .outer-wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* Option 1: Minimum scale + responsive scaling */
+    --scale: calc(max(0.55, min(100vw / 1400, 100vh / 900)));
+  }
+
+  /* NEW: Fixed-size design canvas that scales as one unit */
+  .scaled-content {
+    width: 1400px;
+    height: 700px;
+    transform-origin: top left;
+    transform: scale(var(--scale));
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(106, 13, 173, 0.25);
+    overflow: hidden;
+  }
+
+  /* Your original layout now lives inside scaled-content */
+  .page {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 40px;
+    box-sizing: border-box;
+    background: white;
+  }
+
+  .left {
+    width: 25%;
+    padding-right: 40px;
+    border-right: 3px solid #6A0DAD;
+  }
+
+  .right {
+    width: 75%;
+    padding-left: 40px;
+  }
+
+  h1 {
+    font-size: 2.4rem;
+    color: #6A0DAD;
+    border-bottom: 2px solid #6A0DAD;
+    margin-bottom: 5px;
+  }
+
+  h2 {
+    margin-top: 25px;
+    font-size: 1.3rem;
+    color: #6A0DAD;
+    border-bottom: 2px solid #6A0DAD;
+    padding-bottom: 5px;
+  }
+
+  .title {
+    font-size: 1.2rem;
+    color: #444;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+
+  .section p, .section li {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .profile-img {
+    width: 50%;
+    max-width: 260px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: block;
+  }
+  
+  ul { 
+    padding-left: 20px;
+    list-style-position: outside;
+    }
+    
+    ul li::marker {
+        color: #6A0DAD; /* Purple bullets */
+        font-weight: bold;
+    }
+
+  strong {
+    font-weight: 700;
+  }
+
+  em {
+    font-style: italic;
+  }
+
+  /* --------------------------------------------- */
+  /* NEW: Mobile fallback layout                   */
+  /* --------------------------------------------- */
+  @media (max-width: 900px) {
+
+    body {
+      overflow: auto; /* allow scrolling on mobile */
+    }
+
+    .outer-wrapper {
+      display: block;
+      height: auto;
+      width: 100%;
+      --scale: 1; /* disable scaling */
+    }
+
+    .scaled-content {
+      transform: none; /* remove scale */
+      width: 100%;
+      height: auto;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .page {
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    .left, .right {
+      width: 100%;
+      padding: 0;
+      border-right: none;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+    }
+  }
+</style>
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="#">
-        <strong>Ardy Hashem</strong>
-      </a>
 
-      <nav class="nav" id="nav">
-        <button id="nav-toggle" aria-label="Toggle navigation">☰</button>
-        <ul class="nav-list" id="nav-list">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<div class="outer-wrapper">
+  <div class="scaled-content">
 
-  <main>
-    <!-- HERO -->
-    <section id="home" class="hero">
-      <div class="container hero-grid">
-        <div class="hero-text">
-          <h1>Ardy Hashem</h1>
-          <p class="lead">Product-driven Software Engineer — building robust, user-centered web experiences.</p>
-          <p class="meta">
-            Remote • <a href="https://linkedin.com/in/ardyhash" target="_blank" rel="noopener">LinkedIn</a> • <a href="https://github.com/ardyhashem" target="_blank" rel="noopener">GitHub</a>
-          </p>
-          <div class="hero-ctas">
-            <a class="btn btn-primary" href="#" id="resume-link">View Resume</a>
-            <a class="btn" href="#contact">Get in touch</a>
-          </div>
-        </div>
+    <div class="page">
 
-        <div class="hero-photo" aria-hidden="false">
-          <img src="assets/images/headshot.svg" alt="Ardy Hashem headshot">
-        </div>
-      </div>
-    </section>
+      <!-- LEFT COLUMN -->
+      <div class="left">
+        <!--img src="https://images.credly.com/images/43d50d31-1636-4f57-ba0c-5d5839ab413f/1761082377640.jpeg" 
+             alt="Profile Photo" class="profile-img"-->
+        <h1><strong>Ardy Hashem</strong></h1>
+        <div class="title"><strong>Infrastructure Transformation</br> Associate Manager</strong></div>
 
-    <!-- ABOUT -->
-    <section id="about" class="section">
-      <div class="container">
-        <h2>About</h2>
-        <p class="about-text">
-          I’m a product-minded software engineer focused on building fast, maintainable web applications that solve real customer problems. I partner closely with product and design to turn strategy into shipped features, prioritize outcomes, and iterate quickly. My strengths include frontend engineering (React/TypeScript), backend services (Node.js), and designing pragmatic systems that scale.
-        </p>
-      </div>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section id="experience" class="section alt-bg">
-      <div class="container">
-        <h2>Experience</h2>
-        <div class="cards">
-          <article class="card">
-            <h3>Product Software Engineer — Independent & Consulting</h3>
-            <p class="muted">Recent — Remote</p>
-            <ul>
-              <li>Lead development for customer-facing web applications and internal tooling for startups and small teams.</li>
-              <li>Collaborated with product managers and designers to deliver measurable improvements in engagement and performance.</li>
-              <li>Designed and shipped end-to-end features using React, TypeScript, Node.js and PostgreSQL.</li>
-            </ul>
-          </article>
-
-          <article class="card">
-            <h3>Open Source & Personal Projects</h3>
-            <p class="muted">Ongoing</p>
-            <ul>
-              <li>Maintain and contribute to several open-source projects focused on developer experience and tooling.</li>
-              <li>Built reusable component libraries and utilities to speed product development across teams.</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects" class="section">
-      <div class="container">
-        <h2>Projects</h2>
-        <div class="projects-grid">
-          <article class="project">
-            <h3><a href="https://github.com/ardyhashem" target="_blank" rel="noopener">Open-source tooling & libraries</a></h3>
-            <p>Utilities and small libraries that improve developer productivity and standardize common patterns across projects.</p>
-            <p class="stack">Stack: TypeScript • Node.js • GitHub Actions</p>
-          </article>
-
-          <article class="project">
-            <h3><a href="#" target="_blank" rel="noopener">Product Dashboard (sample)</a></h3>
-            <p>A responsive analytics dashboard prototype showcasing fast client-side interactions and clean visuals for product teams.</p>
-            <p class="stack">Stack: React • TypeScript • Next.js • PostgreSQL</p>
-          </article>
-
-          <article class="project">
-            <h3><a href="#" target="_blank" rel="noopener">Portfolio Site (this site)</a></h3>
-            <p>A lightweight, fast personal site built for clarity and easy maintenance — optimized for GitHub Pages.</p>
-            <p class="stack">Stack: HTML • CSS • Vanilla JS</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills" class="section alt-bg">
-      <div class="container">
-        <h2>Skills</h2>
-        <div class="skills">
-          <span class="skill">JavaScript</span>
-          <span class="skill">TypeScript</span>
-          <span class="skill">React</span>
-          <span class="skill">Node.js</span>
-          <span class="skill">Next.js</span>
-          <span class="skill">PostgreSQL</span>
-          <span class="skill">Docker</span>
-          <span class="skill">AWS</span>
-          <span class="skill">Product Strategy</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section">
-      <div class="container">
         <h2>Contact</h2>
-        <p>If you’d like to connect, reach out via LinkedIn or open an issue on my GitHub — I’ll respond quickly.</p>
-        <div class="contact-grid">
-          <div>
-            <h3>Email</h3>
-            <p><em>Please add your email in the repo to enable direct contact</em></p>
-          </div>
-          <div>
-            <h3>LinkedIn</h3>
-            <p><a href="https://linkedin.com/in/ardyhash" target="_blank" rel="noopener">linkedin.com/in/ardyhash</a></p>
-          </div>
-        </div>
+        <p>
+          <strong>Email:</strong> Ardy.Hashem@accenture.com<br>
+          <strong>Location:</strong> New York, USA
+        </p>
+
+        <h2>Areas of Expertise</h2>
+        <ul>
+          <li><strong>Risk Management</strong></li>
+          <li><strong>Program Management</strong></li>
+          <li><strong>Application Development</strong></li>
+          <li><strong>Secure Cloud Architecture</strong></li>
+          <li><strong>DevOps Best Practices</strong></li>
+          <li><strong>Network & App Support</strong></li>
+        </ul>
+
+        <h2>
+          <a href="https://www.credly.com/users/ardavan-hashemzadeh/badges#credly"
+             target="_blank" rel="noopener"
+             style="color: #6A0DAD; text-decoration: none; font-weight: bold;">
+            Certifications
+          </a>
+        </h2>
+        <ul>
+          <li><em>Accenture Trained Technology Architect</em></li>
+          <li><em>AWS CCP</em></li>
+          <li><em>Cloud Foundry CFCD</em></li>
+          <li><em>Generative AI Leader</em></li>
+          <li><em>Kubernetes KCAD</em></li>
+          <li><em>Terraform 003</em></li>
+        </ul>
       </div>
-    </section>
-  </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>© <span id="year"></span> Ardy Hashem — Built with ❤️ • <a href="https://github.com/ardyhashem/ardyhashem.github.io" target="_blank" rel="noopener">Source</a></p>
+      <!-- RIGHT COLUMN -->
+      <div class="right">
+        <h2>
+          <a href="https://www.linkedin.com/in/ardyhash/"
+             target="_blank" rel="noopener"
+             style="color: #6A0DAD; text-decoration: none; font-weight: bold;">
+             Professional Background
+          </a>
+        </h2>
+        <p>
+          Ardy is a <strong>security‑minded technology architect</strong> with over 
+          <strong>16 years of experience</strong> designing, scaling, and migrating 
+          applications and infrastructure across the <em>healthcare</em> and 
+          <em>CMT industries</em>. A lifelong learner passionate about mastering 
+          technology, his work spans authoring desktop/mobile applications to 
+          architecting <strong>automation and autoremediation platforms</strong> supporting 
+          environments with up to <strong>millions of transactions per second</strong> using enterprise 
+          tooling and open‑source technologies. He graduated 
+          <strong><em>Magna Cum Laude</em></strong> with a Bachelor's in 
+          <strong>Computer Engineering Technology</strong>.
+        </p>
+
+        <h2>Key Select Experience</h2>
+
+        <h3><strong>Americas Delivery Lead — Tier 0 Carrier & Media Conglomerate (2019–Present)</strong></h3>
+        <ul>
+          <li>Led <strong>three major transformation initiatives</strong>: cloud migration of monolithic apps into dozens of microservices, creation of a <strong>global 24/7 DevOps organization</strong>, and absorption of a dissolved internal org.</li>
+          <li>Architected an <strong>auto‑remediation platform</strong> using Vault, Concourse, Grafana, Victoria Metrics, Alerta, OpenSearch, Kubernetes, Docker, and Ansible (<em>4,500+ assets managed</em>).</li>
+          <li>Authored <strong>SSL certificate renewal automation</strong> as an Ansible role, reducing effort from days to minutes.</li>
+          <li>Developed a <strong>“Patching Pipeline Factory”</strong> improving compliance from <em>&lt;40%</em> to <em>&gt;95%</em> across thousands of hosts.</li>
+          <li>Published a <strong>“Service Swap Script”</strong> adopted by platform teams to accelerate Cloud Foundry migrations.</li>
+          <li>Created a <strong>DevOps utility script</strong> later standardized across teams; its buildpack audit feature saved days during <em>Log4Shell</em>.</li>
+        </ul>
+
+        <h3><strong>Director of Information Technology — NY Healthcare Startup (2010–2019)</strong></h3>
+        <ul>
+          <li>Architected infrastructure enabling rapid expansion from a single practice to a <strong>multi‑facility network</strong> integrated with major NYC hospital systems.</li>
+          <li>Reduced telecom spend by <strong>90%</strong> through migration to open‑source IP‑PBX and VoIP carriers.</li>
+          <li>Maintained <strong>100% uptime</strong> of critical systems and <strong>zero security incidents</strong> over nearly a decade.</li>
+        </ul>
+
+      </div>
+
     </div>
-  </footer>
 
-  <script src="assets/js/main.js"></script>
+  </div>
+</div>
+<script data-goatcounter="https://ardyhash.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
