@@ -92,7 +92,7 @@
   {% if site.goatcounter %}
     <script data-goatcounter="{{ site.goatcounter }}" async src="//gc.zgo.at/count.js"></script>
   {% endif %}
-
+<script> window.PROFILE_SCREENSHOTS = {{ page.screenshots | jsonify }}; </script>
   <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
 </body>
 </html>
