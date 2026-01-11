@@ -42,14 +42,7 @@
 
 // Hover-preview logic
 (function () {
-  const screenshots = (window.SCREENSHOTS && window.SCREENSHOTS.length) ? window.SCREENSHOTS : [
-    "./images/testimonial1.jpeg",
-    "./images/testimonial2.jpeg",
-    "./images/testimonial3.jpeg",
-    "./images/testimonial4.jpeg",
-    "./images/testimonial5.png",
-    "./images/testimonial6.png"
-  ];
+  const screenshots = window.PROFILE_SCREENSHOTS || [];
 
   const preview = document.getElementById("hover-preview");
 
