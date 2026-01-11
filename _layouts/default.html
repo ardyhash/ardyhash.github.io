@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>{{ page.name | default: site.title }} — One Pager</title>
+  <title>{{ page.profile_name | default: site.title }} — One Pager</title>
 
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 
@@ -18,11 +18,11 @@
 
         <!-- LEFT COLUMN -->
         <div class="left">
-          {% if page.profile_image %}
+          {% unless page.profile_image == blank %}
             <img src="{{ page.profile_image }}" alt="Profile Photo" class="profile-img">
-          {% endif %}
+          {% endunless %}
 
-          <h1><strong>{{ page.name }}</strong></h1>
+          <h1><strong>{{ page.profile_name }}</strong></h1>
           <div class="title"><strong>{{ page.role }}</strong></div>
 
           <h2>Contact</h2>
