@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>{{ page.name | default: site.title }} — One Pager</title>
+
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+
+  <!-- small inline var for screenshots (populated from front matter) -->
+  <script>window.SCREENSHOTS = {{ page.screenshots | jsonify | default: '[]' }};</script>
+</head>
+<body>
+  <div class="prompt-rain"></div>
+  <div class="outer-wrapper">
+    <div class="scaled-content">
+      <div class="page">
+
+        <!-- LEFT COLUMN -->
+        <div class="left">
+          {% if page.profile_image %}
+            <img src="{{ page.profile_image }}" alt="Profile Photo" class="profile-img">
+          {% endif %}
+
+          <h1><strong>{{ page.name }}</strong></h1>
+          <div class="title"><strong>{{ page.role }}</strong></div>
+
+          <h2>Contact</h2>
+          <p>
+            <strong>Email:</strong> {{ page.contact.email }}<br>
+            <strong>Location:</strong> {{ page.contact.location }}
+          </p>
+
+          <h2>Areas of Expertise</h2>
+          <ul>
+            {% for e in page.expertise %}
+              <li><strong>{{ e }}</strong></li>
+            {% endfor %}
+          </ul>
+
+          <h2>
+            {% if page.certifications_link %}
+              <a href="{{ page.certifications_link }}" target="_blank" rel="noopener" style="color: #6A0DAD; text-decoration: none; font-weight: bold;">
+                Certifications
+              </a>
+            {% else %}
+              Certifications
+            {% endif %}
+          </h2>
+          <ul>
+            {% for c in page.certifications %}
+              <li class="cert" data-cert="{{ c.image }}"><em>{{ c.name }}</em></li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <!-- RIGHT COLUMN -->
+        <div class="right">
+          <h2>
+            {% if page.linkedin %}
+              <a href="{{ page.linkedin }}" target="_blank" rel="noopener" style="color: #6A0DAD; text-decoration: none; font-weight: bold;">
+                Professional Background
+              </a>
+            {% else %}
+              Professional Background
+            {% endif %}
+          </h2>
+
+          {% for p in page.background %}
+            <p>{{ p }}</p>
+          {% endfor %}
+
+          <h2>Key Select Experience</h2>
+
+          {% for xp in page.experiences %}
+            <h3><strong>{{ xp.title }}</strong></h3>
+            <ul>
+              {% for b in xp.bullets %}
+                <li>{{ b }}</li>
+              {% endfor %}
+            </ul>
+          {% endfor %}
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div id="hover-preview"></div>
+
+  <!-- preserve your analytics -->
+  {% if site.goatcounter %}
+    <script data-goatcounter="{{ site.goatcounter }}" async src="//gc.zgo.at/count.js"></script>
+  {% endif %}
+
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>

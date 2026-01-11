@@ -1,21 +1,23 @@
-# Personal Portfolio — ardyhashem.github.io
+```markdown
+# Jekyll one-page theme for your profile
 
-This repository contains a minimal, polished single-page portfolio intended to be served by GitHub Pages.
+Drop the files into your repo:
 
-How to use
-1. Files included in this repository root and assets/ directory are:
-   - `index.html`
+- _layouts/default.html
+- assets/css/main.css
+- assets/js/main.js
+- index.md
+- _config.yml
 
-2. Replace placeholders:
-   - Update content replacing with your own.
-   - Add an image if you so choose, currently there's one commented out.
-   - Remove links or update to point to your own credentials/linkedin.
-   - Remove Goat Counter analytics script just before </body>
+Keep your existing images in `/images`.
 
-3. Commit and push to `main` (or default branch). Since this repo is named `GITHUBUSERNAME.github.io`, GitHub Pages will serve directly from the root — no extra configuration needed.
+Run locally:
 
-Optional improvements
-- Add analytics (e.g., Goat Counter, Plausible or Google Analytics).
-- Add a custom domain via GitHub repo Settings → Pages.
-- Convert to a Jekyll/Theme if you want blog functionality or dynamic collections.
-- Fetch public projects automatically from GitHub via the API (can be added later).
+1. Install Jekyll (see https://jekyllrb.com/docs/installation/)
+2. In the repo root: `bundle exec jekyll serve`
+3. Open http://127.0.0.1:4000
+
+Notes:
+- The page content is driven entirely by the YAML front matter in `index.md`.
+- You can edit text, lists and add/remove certifications by editing the front matter arrays.
+- The layout preserves the original look & feel; any further styling tweaks should go to `assets/css/main.css`.
