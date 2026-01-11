@@ -49,5 +49,6 @@ screenshots:
   - "/images/testimonial3.jpeg"
   - "/images/testimonial4.jpeg"
   - "/images/testimonial5.png"
+  - "/images/testimonial6.png"
 ---
 <!-- This file is intentionally empty. The page is rendered from front matter using the default layout. -->
