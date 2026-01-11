@@ -18,9 +18,9 @@
 
         <!-- LEFT COLUMN -->
         <div class="left">
-          {% unless page.profile_image == blank %}
+          {% if page.profile_image != nil and page.profile_image != "" %}
             <img src="{{ page.profile_image }}" alt="Profile Photo" class="profile-img">
-          {% endunless %}
+          {% endif %}
 
           <h1><strong>{{ page.profile_name }}</strong></h1>
           <div class="title"><strong>{{ page.role }}</strong></div>
