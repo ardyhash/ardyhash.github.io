@@ -47,7 +47,8 @@
     "./images/testimonial2.jpeg",
     "./images/testimonial3.jpeg",
     "./images/testimonial4.jpeg",
-    "./images/testimonial5.png"
+    "./images/testimonial5.png",
+    "./images/testimonial6.png"
   ];
 
   const preview = document.getElementById("hover-preview");
