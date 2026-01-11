@@ -1,10 +1,11 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ardy Hashem — Professional Profile</title>
+<title>Ardy Hashem — One Pager</title>
 
 <style>
 body::before {
@@ -178,11 +179,74 @@ body {
       font-size: 1.2rem;
     }
   }
+/* Background layer for falling prompts */
+.prompt-rain {
+  position: fixed;
+  inset: 0;               /* top:0; right:0; bottom:0; left:0 */
+  pointer-events: none;   /* don't block clicks */
+  overflow: hidden;
+  z-index: -1;            /* behind your main content; raise if needed */
+}
+
+/* Individual prompt */
+.prompt-rain__item {
+  position: absolute;
+  top: -40px;             /* start above viewport */
+  font-family: "Fira Code", "JetBrains Mono", monospace;
+  font-size: 14px;
+  color: rgba(180, 120, 255, 0.9); /* purple accent */
+  text-shadow: 0 0 8px rgba(180, 120, 255, 0.9);
+  white-space: nowrap;
+  opacity: 0;
+  animation-name: prompt-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+/* Falling animation */
+@keyframes prompt-fall {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(0, 110vh, 0);
+    opacity: 0;
+  }
+}
+
+#hover-preview {
+  position: absolute;
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.35);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.18s ease-out;
+  z-index: 9999;
+  max-width: 480px;
+}
+
+#hover-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+
+
 </style>
 </head>
 
 <body>
-
+<div class="prompt-rain"></div>
 <div class="outer-wrapper">
   <div class="scaled-content">
 
@@ -219,12 +283,12 @@ body {
           </a>
         </h2>
         <ul>
-          <li><em>Accenture Trained Technology Architect</em></li>
-          <li><em>AWS CCP</em></li>
-          <li><em>Cloud Foundry CFCD</em></li>
-          <li><em>Generative AI Leader</em></li>
-          <li><em>Kubernetes KCAD</em></li>
-          <li><em>Terraform 003</em></li>
+          <li class="cert" data-cert="https://images.credly.com/size/340x340/images/772a2b31-1440-46a2-9c3c-96b8c05c5819/blob"><em>Accenture Reinvention with Agentic AI</em></li>
+          <li class="cert" data-cert="https://images.credly.com/size/340x340/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png"><em>AWS CCP</em></li>
+          <li class="cert" data-cert="https://images.credly.com/size/340x340/images/232b7f85-ee1c-4b3e-a4be-887d56681d97/cfcd-from-cffsite.png"><em>Cloud Foundry CFCD</em></li>
+          <li class="cert" data-cert="https://images.credly.com/size/340x340/images/ec23e41a-0f32-4a98-9c00-28925621b281/blob"><em>Generative AI Leader</em></li>
+          <li class="cert" data-cert="https://images.credly.com/size/340x340/images/cc8adc83-1dc6-4d57-8e20-22171247e052/blob"><em>Kubernetes KCAD</em></li>
+          <li class="cert" data-cert="https://images.credly.com/size/340x340/images/0dc62494-dc94-469a-83af-e35309f27356/blob"><em>Terraform 003</em></li>
         </ul>
       </div>
 
@@ -275,7 +339,103 @@ body {
 
   </div>
 </div>
+<div id="hover-preview"></div>
 <script data-goatcounter="https://ardyhash.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
-</body>
+<script>
+  (function () {
+    const container = document.querySelector('.prompt-rain');
+    if (!container) return;
+
+    const promptTextOptions = [
+      'ardy@host:~#',
+      '# >_',
+      '>_',
+      '$ >_',
+    ];
+
+    const PROMPT_COUNT = 8; // how many simultaneous prompts
+
+    function randomInRange(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    function createPrompt() {
+      const el = document.createElement('div');
+      el.className = 'prompt-rain__item';
+
+      el.textContent =
+        promptTextOptions[Math.floor(Math.random() * promptTextOptions.length)];
+
+      const startLeft = randomInRange(-10, 100); // percentage of viewport width
+      el.style.left = startLeft + 'vw';
+
+      const duration = randomInRange(6, 14);  // seconds
+      const delay = randomInRange(-duration, 0); // staggered start
+      const fontSize = randomInRange(11, 18); // px
+
+      el.style.fontSize = fontSize + 'px';
+      el.style.animationDuration = duration + 's';
+      el.style.animationDelay = delay + 's';
+
+      container.appendChild(el);
+    }
+
+    for (let i = 0; i < PROMPT_COUNT; i++) {
+      createPrompt();
+    }
+  })();
+</script>
+<script>
+const screenshots = [
+  "./images/testimonial1.jpeg",
+  "./images/testimonial2.jpeg",
+  "./images/testimonial3.jpeg",
+  "./images/testimonial4.jpeg",
+  "./images/testimonial5.png"
+];
+
+const preview = document.getElementById("hover-preview");
+
+// Bold text → random screenshot
+document.querySelectorAll("strong, b").forEach(el => {
+  el.addEventListener("mouseenter", () => {
+    // Skip if this strong is inside a cert element
+    if (el.closest(".cert")) return;
+
+    const random = screenshots[Math.floor(Math.random() * screenshots.length)];
+    preview.innerHTML = `<img src="${random}" />`;
+    preview.style.opacity = 1;
+
+    const rect = el.getBoundingClientRect();
+    preview.style.left = rect.right + 16 + "px";
+    preview.style.top = rect.top + "px";
+  });
+
+  el.addEventListener("mouseleave", () => {
+    if (!el.closest(".cert")) preview.style.opacity = 0;
+  });
+});
+
+// Cert items → specific certificate image
+document.querySelectorAll(".cert").forEach(cert => {
+  cert.addEventListener("mouseenter", () => {
+    const img = cert.dataset.cert;
+    preview.innerHTML = `<img src="${img}" />`;
+    preview.style.opacity = 1;
+
+    const rect = cert.getBoundingClientRect();
+    preview.style.left = rect.right + 16 + "px";
+    preview.style.top = rect.top + "px";
+  });
+
+  cert.addEventListener("mouseleave", () => {
+    preview.style.opacity = 0;
+  });
+});
+</script>
+
+
+
+    </body>
 </html>
