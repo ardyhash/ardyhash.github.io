@@ -1,6 +1,6 @@
 ---
 layout: default
-name: "Ardy Hashem"
+profile_name: "Ardy Hashem"
 role: "Infrastructure Transformation<br/>Associate Manager"
 profile_image: "" # optional: /images/your-photo.jpg
 contact:
