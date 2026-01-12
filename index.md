@@ -44,11 +44,11 @@ experiences:
       - "Reduced telecom spend by <strong>90%</strong> through migration to open‑source IP‑PBX and VoIP carriers."
       - "Maintained <strong>100% uptime</strong> of critical systems and <strong>zero security incidents</strong> over nearly a decade."
 screenshots:
-  - "/images/testimonial1.jpeg"
-  - "/images/testimonial2.jpeg"
-  - "/images/testimonial3.jpeg"
-  - "/images/testimonial4.jpeg"
-  - "/images/testimonial5.png"
-  - "/images/testimonial6.png"
+  - "/assets/img/testimonial1.jpeg"
+  - "/assets/img/testimonial2.jpeg"
+  - "/assets/img/testimonial3.jpeg"
+  - "/assets/img/testimonial4.jpeg"
+  - "/assets/img/testimonial5.png"
+  - "/assets/img/testimonial6.png"
 ---
 <!-- This file is intentionally empty. The page is rendered from front matter using the default layout. -->
